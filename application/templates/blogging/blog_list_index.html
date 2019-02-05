@@ -1,0 +1,8 @@
+{% block index_blog %}
+    {% for post in posts %}
+		<h5><a href="{{url_for('blogging.page_by_id', post_id=post.post_id)}}"> {{ post.title }}</a></h5>
+        <span><em>{{ post.user_name }}</em></span>
+        <span>{{post.post_date.strftime('%d %b, %Y')}}</span>
+    {% endfor %}
+{% endblock index_blog %}
+

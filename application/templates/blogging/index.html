@@ -1,0 +1,135 @@
+{% extends 'layout.html' %}
+{% block meta %}
+    {% include 'blogging/metatags.html' %}
+{% endblock meta %}
+
+{% block content %}
+<div id="main" class="container landing">
+    <div class="row">
+        <div class="col text-left">
+            {% if alert %}
+                <div class="alert alert-{{alert.type}}">
+                    <strong>{{ alert.type }}</strong> {{ alert.message }}
+                </div>
+            {% endif %}
+            <br>
+            <div class="pull-left">
+            <!-- post tags-->
+                    <span class="label">
+                        <a href="/blog/tag/[english]/10/?offset=0">
+                        English
+                        </a>
+                    </span>
+                    <span class="label"> / </span>
+                    <span class="label">
+                        <a href="/blog/tag/[vietnamese]/10/?offset=0">
+                        Tiếng Việt
+                        </a>
+                    </span>
+            </div>
+            {% if meta.is_user_blogger %}
+                <div class="pull-right">
+					<a href="{{ url_for('blogging.editor') }}" id="new">
+                        <span class="glyphicon glyphicon-plus"></span>New article
+                    </a>
+				</div>
+            {% endif %}
+            <br>
+            <hr>
+            {#======================= PRINT ENGLISH ===========================#}
+            {% for post in posts %}
+                {# check vietnamese or english #}
+                {% set exists = [] %}
+                {% if post.tags %}
+					{% for tag in post.tags %}		
+	                	{% if tag == "[ENGLISH]" %}
+	                	     {% if exists.append(True) %} {% endif %}
+	                	{% endif %}
+					{% endfor %}
+				{% endif %}
+                {% if exists %}
+	                <a href="{{ post.url }}">
+	                    <font size="5"> <b> {{ post.title }} </b> </font>
+	                </a>
+	                <br>
+	                <a href="{{ url_for('blogging.posts_by_author', user_id=post.user_id)}}"><em>{{post.user_name}}</em></a> {{post.post_date.strftime('%d %b %Y')}}
+	                <!-- post tags-->
+			        {% if post.tags %}
+			            <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;
+			            {% for tag in post.tags %}
+			                    {% if tag == "[ENGLISH]" %}
+			                    {% else %}
+				                <span class="label">
+				                    <a href="{{ url_for('blogging.posts_by_tag', tag=tag.lower(), count=10, offset=0) }}">
+				                     <font size="3">{{ tag }}</font> 
+				                    </a>
+				                </span>&nbsp;&nbsp;
+				                {% endif %}
+			            {% endfor %}
+			            <br>
+			            <hr>
+			        {% endif %}
+			     {% endif %}
+
+            {% endfor %}
+            {#======================= PRINT VIETNAMESE ===========================#}
+            
+            {% for post in posts %}
+                {# check vietnamese or english #}
+                {% set exists = [] %}
+                {% if post.tags %}
+					{% for tag in post.tags %}		
+	                	{% if tag == "[VIETNAMESE]" %}
+	                	     {% if exists.append(True) %} {% endif %}
+	                	{% endif %}
+					{% endfor %}
+				{% endif %}
+                {% if exists %}
+	                <a href="{{ post.url }}">
+	                    <font size="5"> <b> {{ post.title }} </b> </font>
+	                </a>
+	                <br>
+	                <a href="{{ url_for('blogging.posts_by_author', user_id=post.user_id)}}"><em>{{post.user_name}}</em></a> {{post.post_date.strftime('%d %b %Y')}}
+	                <!-- post tags-->
+			        {% if post.tags %}
+			            <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;
+			            {% for tag in post.tags %}
+			                    {% if tag == "[VIETNAMESE]" %}
+			                    {% else %}
+				                <span class="label">
+				                    <a href="{{ url_for('blogging.posts_by_tag', tag=tag.lower(), count=10, offset=0) }}">
+				                     <font size="3">{{ tag }}</font> 
+				                    </a>
+				                </span>&nbsp;&nbsp;
+				                {% endif %}
+			            {% endfor %}
+			            <br>
+			            <hr>			           
+			        {% endif %}
+			     {% endif %}
+            {% endfor %}
+            <center>
+                {% if ((meta)  and (meta.max_pages>1)) %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="pager">
+                                {% if meta.pagination.prev_page %}
+                                    <a href="{{meta.pagination.prev_page}}">&laquo; Prev</a>
+                                {% else %}
+                                    <a href="">&laquo; Prev</a>
+                                {% endif %}
+                                {% if meta.pagination.next_page %}
+                                    <a href="{{meta.pagination.next_page}}">Next &raquo;</a>
+                                {% else %}
+                                    <a href="">Next &raquo;</a>
+                                {% endif %}
+
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            </center>
+        </div>
+    </div>
+</div>
+{% endblock %}

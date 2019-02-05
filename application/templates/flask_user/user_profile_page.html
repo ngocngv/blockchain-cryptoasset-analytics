@@ -1,0 +1,41 @@
+{% extends 'flask_user/public_base.html' %}
+
+{% block content %}
+<div id="main" class="container landing">
+    <div class="row">
+        <div class="col text-center">
+            <br>
+            <center><img src="{{ current_user.avatar(128) }}"></center>
+            <center>{{current_user.email}}</center>
+            <hr>
+            {% from "flask_user/_macros.html" import render_field, render_submit_field %}
+            <form action="" method="POST" class="form" role="form">
+                {{ form.hidden_tag() }}
+                <div class="col-xs-6"> 
+                    {{ render_field(form.first_name, tabindex=240, value=current_user.first_name) }}
+                </div>
+                <div class="col-xs-6"> 
+                    {{ render_field(form.last_name, tabindex=250, value=current_user.last_name) }}
+                </div>
+                <div class="col-xs-6"> 
+                    {{ render_field(form.telegram, tabindex=250, value=current_user.telegram) }}
+                </div>
+                <div class="col-xs-6"> 
+                    {{ render_field(form.discord, tabindex=250, value=current_user.discord) }}
+                </div>
+                <div class="col-xs-6">     
+                    {{ render_field(form.api_secret, tabindex=250, value=current_user.api_secret) }}
+                </div>
+                <div class="col-xs-6"> 
+                    {{ render_field(form.api_key, tabindex=250, value=current_user.api_key) }}
+                </div>
+                <div class="col-xs-6"> 
+                    {{ render_submit_field(form.submit, tabindex=280) }}
+                </div>
+            </form>
+            <hr>
+            <a href="{{ url_for('user.change_password') }}" class="link ">Change password</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
