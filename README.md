@@ -8,7 +8,7 @@ Blockchain and Cryptoasset Analytics develops an intelligent data driven applica
 
 Large order execution detection based on volume weighted averaging transaction count over a 30 day period. A heat map represents trading activity is generated for portfolio building.
 
-<img src="https://media.licdn.com/dms/image/C4D22AQFEs3DxIOBthg/feedshare-shrink_8192/0?e=1549450800&v=beta&t=TzgX8IhEBPVQJXiOJunTHFIH6A2R19_5kIDHq9VDB9s" width="700">
+<img src="https://media.licdn.com/dms/image/C4D22AQFEs3DxIOBthg/feedshare-shrink_8192/0?e=1549616400&v=beta&t=u-A6_y7c4lhZGsYskmw6Z9zQQzppuwr8iec5mlTpQBI" width="700">
 
 ### Portfolio Optimization via Reinforcement Learning
 
