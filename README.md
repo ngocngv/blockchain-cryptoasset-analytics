@@ -8,17 +8,17 @@ Blockchain and Cryptoasset Analytics develops an intelligent data driven applica
 
 Large order execution detection based on volume weighted averaging transaction count over a 30 day period. A heat map represents trading activity is generated for portfolio building.
 
-<img src="https://media.licdn.com/dms/image/C4D22AQFEs3DxIOBthg/feedshare-shrink_8192/0?e=1549616400&v=beta&t=u-A6_y7c4lhZGsYskmw6Z9zQQzppuwr8iec5mlTpQBI" width="700">
+<img src="img/0.png" width="700">
 
 ### Portfolio Optimization via Reinforcement Learning
 
-<img src="https://media.licdn.com/dms/image/C4D22AQFy2ikoAH34ng/feedshare-shrink_8192/0?e=1549450800&v=beta&t=JChRgX1ZhyYn42cXz3Wav-1HOSJ0KJ2Kf56oxlZupPA" width="700">
+<img src="img/1.png" width="700">
 
 ### Content Management System (CMS)
 
-<img src="https://media.licdn.com/dms/image/C4D22AQHmiHRZ6geBhw/feedshare-shrink_8192/0?e=1549450800&v=beta&t=54-r5oGNEY1sCZMnevFyAPU86InSz-yZaX9K7QBLJyA" width="700">
+<img src="img/2.png" width="700">
 
-<img src="https://media.licdn.com/dms/image/C4D22AQH8iswxKrjGTA/feedshare-shrink_8192/0?e=1549450800&v=beta&t=4kcJR1B21KOdjTUwkXUM_pCspszZUDzBO23t7EdN8W8" width="700">
+<img src="img/3.png" width="700">
 
 ## License
 
