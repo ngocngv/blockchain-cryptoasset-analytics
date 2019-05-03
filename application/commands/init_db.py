@@ -26,8 +26,10 @@ def create_users():
     blogger_role = find_or_create_role('blogger', u'blogger')
     
     # Add users
-    user = find_or_create_user(XXXX, XXXX, XXXX, XXXX, admin_role)
-    user = find_or_create_user(XXXX, XXXX, XXXX, XXXX,blogger_role)
+    user = find_or_create_user('Supreme', 'Administrator', 'blockchain.cryptoasset.analytics@gmail.com', 'xxxxxx', admin_role)
+    user.roles.append(admin_role)
+    user = find_or_create_user('Vuong', 'Trinh', 'vanvuong.trinh@gmail.com', 'xxxxx',blogger_role)
+    user.roles.append(admin_role) 
     
     # Save to DB
     db.session.commit()
